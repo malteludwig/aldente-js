@@ -45,7 +45,7 @@ $(document).ready(function() {
     var url = "";
 
     url = window.location.href.split('#')[1];
-    console.log(window.location.href.split('#')[1], url.length);
+    console.log(window.location.href.split('#')[1], url);
 
     if (url && url.length > 0) {
       if (url == "studio") {
@@ -56,16 +56,18 @@ $(document).ready(function() {
 
       }
       else {
-        target = $('.accordion-item').eq(client_list.indexOf(url));
+        setTimeout(function(){
+            target = $('.accordion-item').eq(client_list.indexOf(url));
 
-        target.addClass('w--open first-item');
-        target.parent().find('.accordion-body').addClass('w--open').css('height', 'auto');
+            target.addClass('w--open first-item');
+            target.parent().find('.accordion-body').addClass('w--open').css('height', 'auto');
 
 
-        $('.tab-link-tab-2').addClass('w--current');
-        $('.tab-link-tab-1').removeClass('w--current');
+            $('.tab-link-tab-2').addClass('w--current');
+            $('.tab-link-tab-1').removeClass('w--current');
 
-        setTimeout(scrolling, 100);
+            setTimeout(scrolling, 100);
+        }, 100);
       }
 
       $('.accordion-toggle').on('click', function() {
